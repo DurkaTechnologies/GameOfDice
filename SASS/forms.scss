@@ -1,0 +1,154 @@
+@import 'colors';
+
+$border-radius: 16px;
+$font-size: 24px;
+$main-shadow: 0 6px 6px 1px $shadow-color;
+
+.container {
+  	display: flex;
+  	flex-flow: column wrap;
+  	justify-content: space-around;
+	justify-self: center;
+	align-self: center;
+  	height: 65%;
+  	width: 40%;
+  	border-radius: 16px;
+	* {
+		position: relative;
+		margin: 0.1rem 0;
+	}
+  	h2 {
+		display: block;
+  	  	text-align: center;
+		color: $text-secondary;
+		text-shadow: 0 0.1rem 0.4rem $shadow-color, 
+			0 0 0.8rem $shadow-color;
+  	}
+	h1 {
+		display: block;
+  	  	text-align: center;
+		color: $text-primary;
+  	}
+}
+
+.line {
+	background: linear-gradient(-90deg, #00000000, #000000de, #00000000);
+    height: 3px;
+    border: 0;
+    margin: -0.3em 0 0.5em 0;
+}
+
+.control {
+  	box-shadow: $main-shadow;
+  	padding: 0.8rem 1.2rem;
+  	font-size: $font-size;
+  	cursor: pointer;
+  	background-color: $primary-color;
+  	border-radius: $border-radius;
+	color: $text-primary;
+
+  	border: solid 0.2rem ;
+  	border-bottom: solid 0.5rem;
+  	border-color: $primary-border;
+	min-width: 0.3rem;
+}
+
+.button {
+	padding: 0.8rem 3rem;
+	text-align: center;
+  	width: 100%;
+}
+
+.button:hover {
+  	background-color: $hover-color;
+  	border-color: $hover-border;
+}
+
+.danger {
+	border-color: $danger-color;
+}
+
+.danger:focus {
+	border-color: $darkdanger-color;
+}
+
+.button:active, .button:disabled  {
+ 	background-color: $active-color;
+ 	border-bottom: solid 0.2rem;
+ 	border-color: $active-border;
+ 	margin-top: 0.4rem;
+}
+
+input {
+  	text-align: left;
+  	cursor: text;
+  	outline: none;
+}
+
+input:focus {
+  	border-color: $active-border;
+}
+
+@keyframes move-right { 
+	from { 
+		left: 35%
+	} 
+	to { 
+		left: 0
+	}  
+}
+
+@keyframes move-left { 
+	from { 
+		right: 35%
+	} 
+	to { 
+		right: 0
+	}  
+}
+
+@keyframes move-down { 
+	from { 
+		bottom: 35%
+	} 
+	to { 
+		bottom: 0
+	}  
+}
+
+@keyframes move-up { 
+	from { 
+		top: 35%
+	} 
+	to { 
+		top: 0
+	}  
+}
+
+.container>*:nth-child(even):not(.line) {
+	animation: .7s ease-in-out move-right;
+}
+
+.container>*:nth-child(odd):not(:first-child, :last-child) {
+	animation: .7s ease-in-out move-left;
+}
+
+.container>*:first-child, .line{
+	animation: .7s ease move-down;
+}
+
+.container>*:last-child{
+	animation: .7s ease move-up;
+}
+
+@media screen and (max-width: 920px) {
+  	.container {
+  		width: 80%;
+	}
+}
+@media screen and (max-width: 450px) {
+	.container {
+		width: 100%;
+  }
+}
+/*# sourceMappingURL=forms.scss.map */
