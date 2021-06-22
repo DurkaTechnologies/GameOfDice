@@ -1,0 +1,144 @@
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  justify-self: center;
+  align-self: center;
+  height: 65%;
+  width: 40%;
+  border-radius: 16px;
+}
+.container * {
+  position: relative;
+  margin: 0.1rem 0;
+}
+.container h2 {
+  display: block;
+  text-align: center;
+  color: #ececec;
+  text-shadow: 0 0.1rem 0.4rem #26262681, 0 0 0.8rem #26262681;
+}
+.container h1 {
+  display: block;
+  text-align: center;
+  color: #262626;
+}
+
+.line {
+  background: linear-gradient(-90deg, #00000000, #000000de, #00000000);
+  height: 3px;
+  border: 0;
+  margin: -0.3em 0 0.5em 0;
+}
+
+.control {
+  box-shadow: 0 6px 6px 1px #26262681;
+  padding: 0.8rem 1.2rem;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: AliceBlue;
+  border-radius: 16px;
+  color: #262626;
+  border: solid 0.2rem;
+  border-bottom: solid 0.5rem;
+  border-color: #B0B0B0;
+  min-width: 0.3rem;
+}
+
+.button {
+  padding: 0.8rem 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #ececec;
+  border-color: #B0B0B0;
+}
+
+.danger {
+  border-color: Firebrick;
+}
+
+.danger:focus {
+  border-color: DarkRed;
+}
+
+.button:active, .button:disabled {
+  background-color: #ACACAC;
+  border-bottom: solid 0.2rem;
+  border-color: Gray;
+  margin-top: 0.4rem;
+}
+
+input {
+  text-align: left;
+  cursor: text;
+  outline: none;
+}
+
+input:focus {
+  border-color: Gray;
+}
+
+@keyframes move-right {
+  from {
+    left: 35%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes move-left {
+  from {
+    right: 35%;
+  }
+  to {
+    right: 0;
+  }
+}
+@keyframes move-down {
+  from {
+    bottom: 35%;
+  }
+  to {
+    bottom: 0;
+  }
+}
+@keyframes move-up {
+  from {
+    top: 35%;
+  }
+  to {
+    top: 0;
+  }
+}
+.container > *:nth-child(even):not(.line) {
+  animation: 0.7s ease-in-out move-right;
+}
+
+.container > *:nth-child(odd):not(:first-child, :last-child) {
+  animation: 0.7s ease-in-out move-left;
+}
+
+.container > *:first-child, .line {
+  animation: 0.7s ease move-down;
+}
+
+.container > *:last-child {
+  animation: 0.7s ease move-up;
+}
+
+@media screen and (max-width: 920px) {
+  .container {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=forms.scss.map */
+
+/*# sourceMappingURL=forms.css.map */
