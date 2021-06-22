@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "node-sass": "^6.0.0",
+    "sass": "^1.34.1"
+  },
+  "scripts": {
+    "node-sass": "sass src/SASS:src/stylesheets"
+  }
+}

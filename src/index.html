@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Dice Roll</title>
+	<link rel="stylesheet" href="stylesheets/styles.css" />
+	<link rel="stylesheet" href="stylesheets/gamedice.css" />
+	<link rel="stylesheet" href="stylesheets/forms.css" />
+	<link rel="stylesheet" href="stylesheets/game.css" />
+</head>	
+<body>
+    <form id="start-box" class="container">
+		<h1>ENTER NAME</h1>
+		<hr class="line"></hr>
+		<h2>FIRST PLAYER</h2>
+		<input class="control" id="first-input" type="text">
+		<h2>SECOND PLAYER</h2>
+		<input class="control" id="second-input" type="text">
+		<h2 id="error-text"> </h2>
+
+		<button class="control button" type="button" id="start-button">Start</button>
+		<button class="control button" type="button" id="start-button-pc">Play with PC</button>
+    </form>
+
+
+	<div id="game-box" class="hidden">
+		<div class="turn-box">
+			<h1>Now rolls the dice</h1>
+			<svg version="1.1" xmlns="//www.w3.org/2000/svg" width="100%" >
+				<text id="turn-text" class="stroke-text"  dominant-baseline="middle"  x="50%" y="50%" >Player1</text>
+			</svg>
+			
+		</div>
+		<div id="first-player" class="control player red" player="1">
+			<h3>Player1</h3>
+			<h4>0</h4>
+		</div>
+		<div id="second-player" class="control player" player="2">
+			<h3>Player2</h3>
+			<h4>0</h4>
+		</div>
+		<div class="dice">
+			<ol class="die-list even-roll" data-roll="1" id="die-1">
+			  	<li class="die-item" data-side="1">
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="2">
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="3">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="4">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="5">
+				   <span class="dot"></span>
+				   <span class="dot"></span>
+				   <span class="dot"></span>
+				   <span class="dot"></span>
+				   <span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="6">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			</ol>
+			<ol class="die-list odd-roll" data-roll="1" id="die-2">
+			  	<li class="die-item" data-side="1">
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="2">
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="3">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="4">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			  	<li class="die-item" data-side="5">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+				</li>
+			  	<li class="die-item" data-side="6">
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+					<span class="dot"></span>
+			  	</li>
+			</ol>
+		</div>
+		<button type="button" class="control button" id="roll-button">Roll Dice</button>
+	</div>
+    <script src="scripts/gamescript.js"></script>
+    <script src="scripts/loginscript.js"></script>
+    <script src="scripts/classes.js"></script>
+  </body>
+</html>
