@@ -65,6 +65,7 @@
 }
 .game-container .player .after-visibility {
   --after-visibility: visible;
+  --animation-duration: 1.5s;
   --number: 2;
   --color: black;
 }
@@ -73,7 +74,8 @@
   margin-left: 0.5em;
   content: "+" counter(number);
   position: absolute;
-  animation: 1.5s ease-in-out counterMove;
+  animation: ease-in-out counterMove;
+  animation-duration: var(--animation-duration);
   visibility: var(--after-visibility);
   color: var(--color);
   font-weight: bold;
@@ -142,6 +144,88 @@
 }
 .game-container .red, .game-container .blue {
   color: #ececec;
+}
+
+.winner-container {
+  position: absolute;
+  display: grid;
+  justify-self: center;
+  align-content: center;
+  justify-items: center;
+  align-self: center;
+  grid-template-rows: 0.1fr 0.2fr 0.2fr 0.2fr 0.1fr;
+  grid-template-columns: 0.5fr 0.5fr;
+  width: 60%;
+  height: 50%;
+  top: 25%;
+  left: 20%;
+}
+.winner-container .upline {
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.winner-container .downline {
+  grid-row: 5;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.winner-container .upline, .winner-container .downline {
+  height: 6px;
+  background: linear-gradient(-90deg, #00ff4000, #94D34A, #00ff4000);
+}
+@keyframes width-left-anim {
+  from {
+    width: 10%;
+    left: 45%;
+  }
+  to {
+    width: 100%;
+    left: 0%;
+  }
+}
+.winner-container .line::before {
+  position: absolute;
+  left: 45%;
+  content: "";
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  width: 10%;
+  background: linear-gradient(-90deg, #00000000, #000000de, #00000000);
+  height: 6px;
+  margin-bottom: -12px;
+  opacity: 50%;
+  animation: 0.7s ease-in-out width-left-anim 0.7s;
+  animation-fill-mode: both;
+}
+.winner-container .button-play {
+  grid-row: 4;
+  grid-column: 1;
+}
+.winner-container .button-menu {
+  grid-row: 4;
+  grid-column: 2;
+}
+.winner-container .button-menu, .winner-container .button-play {
+  width: 80%;
+}
+.winner-container h1 {
+  display: block;
+  text-align: center;
+  text-shadow: 0 0.1rem 0.4rem #26262681, 0 0.4rem 0.8rem black, 0 0 0.8rem #26262681;
+}
+.winner-container #player-box {
+  color: #94D34A;
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.winner-container #wintext-box {
+  color: #94D34A;
+  grid-row: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 @media screen and (max-width: 1100px) {

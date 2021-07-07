@@ -79,6 +79,7 @@ $main-shadow: 0 6px 6px 1px $shadow-color;
 
         .after-visibility {
             --after-visibility: visible;
+            --animation-duration: 1.5s;
             --number: 2;
             --color: black;
         }
@@ -88,7 +89,8 @@ $main-shadow: 0 6px 6px 1px $shadow-color;
             margin-left: 0.5em;
             content: '+' counter(number);
             position: absolute;
-            animation: 1.5s ease-in-out counterMove;
+            animation: ease-in-out counterMove;
+            animation-duration: var(--animation-duration);
             visibility: var(--after-visibility);
             color: var(--color);
             font-weight: bold;
@@ -180,6 +182,102 @@ $main-shadow: 0 6px 6px 1px $shadow-color;
         color: $text-secondary;
     }
 }
+
+.winner-container {
+    position: absolute;
+    display: grid;
+    justify-self: center;
+    align-content: center;
+    justify-items: center;
+    align-self: center;
+    grid-template-rows: 0.1fr 0.2fr 0.2fr 0.2fr 0.1fr;
+    grid-template-columns: 0.5fr 0.5fr;
+    width: 60%;
+    height: 50%;
+    top: 25%;
+    left: 20%;
+    .upline {
+        grid-row: 1;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .downline {
+        grid-row: 5;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .upline, .downline {
+        height: 6px;
+        background: linear-gradient(-90deg, #00ff4000, $success-primary, #00ff4000);
+    }
+
+    @keyframes width-left-anim { 
+        from { 
+            width: 10%;
+            left: 45%;
+        } 
+        to { 
+            width: 100%;
+            left: 0%;
+        }  
+    }
+ 
+    .line::before {
+        position: absolute;
+        left: 45%;
+        content: "";
+        display: flex;
+	    align-self: center;
+        justify-self: center;
+	    width: 10%;
+	    background: linear-gradient(-90deg, #00000000, #000000de, #00000000);
+        height: 6px;
+        margin-bottom: -12px;
+        opacity: 50%;
+        animation: .7s ease-in-out width-left-anim .7s;
+	    animation-fill-mode: both;
+    }
+
+    .button-play {
+        grid-row: 4;
+        grid-column: 1;
+    }
+
+    .button-menu {
+        grid-row: 4;
+        grid-column: 2;
+    }
+
+    .button-menu, .button-play {
+        width: 80%;
+    }
+
+    h1 {
+        display: block;
+  	  	text-align: center;
+		text-shadow: 0 0.1rem 0.4rem $shadow-color, 0 0.4rem 0.8rem black, 
+			0 0 0.8rem $shadow-color;
+    }
+
+    #player-box {
+		color: $success-primary;
+        grid-row: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    #wintext-box {
+		color: $success-primary;
+        grid-row: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+}
+
+
+
 
 @media screen and (max-width: 1100px) {
     .game-container {

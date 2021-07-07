@@ -4,6 +4,7 @@
     "sass": "^1.34.1"
   },
   "scripts": {
-    "node-sass": "sass src/SASS:src/stylesheets"
+    "node-sass": "sass src/SASS:src/stylesheets",
+    "sass": "sass --watch src/SASS:src/stylesheets"
   }
 }

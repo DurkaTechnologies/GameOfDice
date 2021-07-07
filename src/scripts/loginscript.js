@@ -1,34 +1,35 @@
 
-const firstInput = document.querySelector("#first-input");
-const errorText = document.querySelector("#error-text");
-const secondInput = document.querySelector("#second-input");
+const firstInput = $("#first-input");
+const errorText = $("#error-text");
+const secondInput = $("#second-input");
+const startBtn = $("#start-button");
 var playWithPC = false;
 
 var EnterName = function(player) {
 	return function (event) { 
 		if (firstInput.value != secondInput.value) {
-			firstInput.setAttribute("class", "control");
-			secondInput.setAttribute("class", "control");
-			document.querySelector("#start-button").disabled = false;
-			errorText.innerHTML = " ";
+			firstInput.attr("class", "control");
+			secondInput.attr("class", "control");
+			startBtn.prop('disabled', false);
+			errorText.html("");
 		}
 		else {
 			if (player == 1) {
-				firstInput.setAttribute("class", "control danger");
-				document.querySelector("#start-button").disabled = true;
-				secondInput.setAttribute("class", "control");
-				errorText.innerHTML = "Incorrect first player name";
+				firstInput.attr("class", "control danger");
+				secondInput.attr("class", "control");
+				startBtn.prop('disabled', true);
+				errorText.html("Incorrect first player name");
 			}
 			else {
-				secondInput.setAttribute("class", "control danger");
-				document.querySelector("#start-button").disabled = true;
-				firstInput.setAttribute("class", "control");
-				errorText.innerHTML = "Incorrect second player name";
+				secondInput.attr("class", "control danger");
+				firstInput.attr("class", "control");
+				startBtn.prop('disabled', true);
+				errorText.html("Incorrect second player name");
 			}
 		}
 		
 	};
 };
 
-firstInput.addEventListener('keyup', EnterName(1));
-secondInput.addEventListener('keyup', EnterName(2));
+firstInput.keyup(EnterName(1));
+secondInput.keyup(EnterName(2));
