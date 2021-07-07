@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="stylesheets/gamedice.css" />
 	<link rel="stylesheet" href="stylesheets/forms.css" />
 	<link rel="stylesheet" href="stylesheets/game.css" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>	
 <body>
     <form id="start-box" class="container">
@@ -31,7 +32,6 @@
 			<svg version="1.1" xmlns="//www.w3.org/2000/svg" width="100%" >
 				<text id="turn-text" class="stroke-text"  dominant-baseline="middle"  x="50%" y="50%" >Player1</text>
 			</svg>
-			
 		</div>
 		<div id="first-player" class="control player red" player="1">
 			<h3>Player1</h3>
@@ -114,6 +114,16 @@
 			</ol>
 		</div>
 		<button type="button" class="control button" id="roll-button">Roll Dice</button>
+	</div>
+
+	<div id="winner-box" class="hidden">
+		<hr class="line upline"></hr>
+		<h1 id="wintext-box">WIN</h1>
+		<h1 id="player-box"></h1>
+		<button class="control button button-play" type="button" id="playagain-button">Play again</button>
+		<button class="control button button-menu" type="button" id="tomenu-button">To menu</button>
+		<hr class="line downline"></hr>
+		<!-- winner-container  -->
 	</div>
     <script src="scripts/gamescript.js"></script>
     <script src="scripts/loginscript.js"></script>

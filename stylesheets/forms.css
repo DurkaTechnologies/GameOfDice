@@ -25,6 +25,9 @@
 }
 
 .line {
+  display: flex;
+  align-self: center;
+  width: 10%;
   background: linear-gradient(-90deg, #00000000, #000000de, #00000000);
   height: 3px;
   border: 0;
@@ -113,6 +116,14 @@ input:focus {
     top: 0;
   }
 }
+@keyframes add-width {
+  from {
+    width: 10%;
+  }
+  to {
+    width: 100%;
+  }
+}
 .container > *:nth-child(even):not(.line) {
   animation: 0.7s ease-in-out move-right;
 }
@@ -121,8 +132,18 @@ input:focus {
   animation: 0.7s ease-in-out move-left;
 }
 
-.container > *:first-child, .line {
+.container > *:first-child {
   animation: 0.7s ease move-down;
+}
+
+.container > .line {
+  animation: 0.7s ease move-down, 0.7s ease-in-out add-width 0.7s;
+  animation-fill-mode: both;
+}
+
+.line {
+  animation: 0.7s ease-in-out add-width 0.7s;
+  animation-fill-mode: both;
 }
 
 .container > *:last-child {
