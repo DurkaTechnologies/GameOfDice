@@ -10,7 +10,7 @@ $.global.secondPlayerBox = 0;
 $.global.firstScoreDOM = 0;
 $.global.secondScoreDOM = 0;
 $.global.rollButton = 0;
-const winValue = 3;
+const winValue = 15;
 
 function InitPlayes() {
 	game = new Game();
